@@ -2,9 +2,9 @@
 
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import "../css/custom-flatpickr.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
-import "../css/custom-flatpickr.css";
 
 const countBtn = document.querySelector("button[data-start]");
 const datePicker = document.querySelector("input#datetime-picker");
