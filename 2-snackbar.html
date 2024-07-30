@@ -16,7 +16,7 @@
     <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/modulepreload-polyfill-3cfb730f.js">
     <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-77e16229.js">
     <link rel="stylesheet" href="/goit-js-hw-10/assets/vendor-7a007824.css">
-    <link rel="stylesheet" href="/goit-js-hw-10/assets/styles-b0442a64.css">
+    <link rel="stylesheet" href="/goit-js-hw-10/assets/styles-e9160c40.css">
   </head>
 
   <body>
@@ -25,12 +25,12 @@
       <form class="form">
         <label class="input-block">
           Delay (ms)
-          <input type="number" name="delay" required />
+          <input class="input-delay" type="number" name="delay" required >
         </label>
 
         <fieldset>
           <legend>State</legend>
-          <label>
+          <label class="radio-label">
             <input
               class="form-radio visually-hidden"
               type="radio"
@@ -39,13 +39,13 @@
               required
             />
             <span class="svg-radio-button"
-              ><svg class="icon" width="22" height="22">
-                <use href="/goit-js-hw-10/assets/icons-6553a2bd.svg#icon-radio"></use>
+              ><svg class="icon" width="12" height="12">
+                <use href="/goit-js-hw-10/assets/icons-5589795c.svg#icon-inner-radio"></use>
               </svg>
             </span>
             Fulfilled
           </label>
-          <label>
+          <label class="radio-label">
             <input
               class="form-radio visually-hidden"
               type="radio"
@@ -54,15 +54,15 @@
               required
             />
             <span class="svg-radio-button"
-              ><svg class="icon" width="20" height="20">
-                <use href="/goit-js-hw-10/assets/icons-6553a2bd.svg#icon-radio"></use>
+              ><svg class="icon" width="12" height="12">
+                <use href="/goit-js-hw-10/assets/icons-5589795c.svg#icon-inner-radio"></use>
               </svg>
             </span>
             Rejected
           </label>
         </fieldset>
 
-        <button type="submit">Create notification</button>
+        <button class="create-btn" type="submit">Create notification</button>
       </form>
     </section>
     
