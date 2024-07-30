@@ -5,54 +5,54 @@ import "izitoast/dist/css/iziToast.min.css";
 
 const form = document.querySelector(".form");
 
-form.addEventListener("submit", e => {
+const TOAST_CONFIG = {
+  titleColor: "#fff",
+  titleSize: "16px",
+  titleLineHeight: 1.5,
+  messageSize: "16px",
+  messageLineHeight: 1.5,
+  messageColor: "#fff",
+  position: "topRight",
+  iconUrl: "./img/icons.svg#icon-error",
+  iconColor: "#fff",
+  closeOnEscape: true,
+  timeout: 3000,
+  theme: "dark",
+};
+
+const showToast = (type, backgroundColor, title, message) => {
+  const toastMethod = type === 'fulfilled' ? 'success' : 'error';
+  iziToast[toastMethod]({
+    ...TOAST_CONFIG,
+    backgroundColor,
+    icon: type,
+    title: title,
+    message: message,
+  });
+};
+
+const createNotification = (delay, state) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (state === "fulfilled") {
+        showToast('fulfilled', "#59a10d", "OK", `Fullfilled promise in ${delay} ms`);
+        resolve();
+      } else {
+        showToast('rejected', "#ef4040", "Error", `Rejected promise in ${delay} ms`);
+        reject();
+      }
+    }, delay);
+  });
+};
+
+const handleSubmit = (e) => {
   e.preventDefault();
+  const delay = parseInt(document.querySelector("[name=delay]").value, 10);
+  const state = document.querySelector("[name=state]:checked")?.value;
 
-  const inputDelay = document.querySelector("[name=delay]");
-  const inputState = document.querySelector("[name=state]:checked");
-  const delay = parseInt(inputDelay.value, 10);
-
-    if (delay > 0) {
-    if (inputState.value === "fulfilled") {
-      const fulfilledToast = setTimeout(() => {
-        iziToast.success({
-          title: "Notification",
-          titleColor: "#fff",
-          titleSize: "16px",
-          titleLineHeight: 1.5,
-          message: "Notification sent",
-          messageSize: "16px",
-          messageLineHeight: 1.5,
-          messageColor: "#fff",
-          backgroundColor: "#00b894",
-          position: "topRight",
-          closeOnEscape: true,
-          icon: "success",
-          timeout: 3000,
-          theme: "dark",
-        });
-      }, delay);
-    } else if (inputState.value === "rejected") {
-      const rejectedToast = setTimeout(() => {
-        iziToast.error({
-          title: "Notification",
-          titleColor: "#fff",
-          titleSize: "16px",
-          titleLineHeight: 1.5,
-          message: "Notification sent",
-          messageSize: "16px",
-          messageLineHeight: 1.5,
-          messageColor: "#fff",
-          backgroundColor: "#ef4040",
-          position: "topRight",
-          closeOnEscape: true,
-          icon: "error",
-          timeout: 3000,
-          theme: "dark",
-        });
-      }, delay);
-    }
-  } else {
-    console.log("Delay must be greater than 0");
+  if (delay > 0 && state) {
+    createNotification(delay, state);
   }
-});
+};
+
+form.addEventListener("submit", handleSubmit);
