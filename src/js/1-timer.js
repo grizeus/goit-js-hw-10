@@ -94,7 +94,7 @@ const options = {
         position: "topRight",
         closeOnEscape: true,
         icon: "error",
-        iconUrl: "./img/err-octagon.svg",
+        iconUrl: "./img/error.svg",
         timeout: 3000,
         theme: "dark",
       });

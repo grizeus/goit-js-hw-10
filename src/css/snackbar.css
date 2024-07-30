@@ -41,7 +41,6 @@ fieldset {
 
 
 .svg-radio-button {
-  padding: 0;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -73,11 +72,11 @@ fieldset {
 }
 
 .form-radio:checked + .svg-radio-button {
-  border-color: #404bbf;
+  border-color: #4e75ff;
 }
 
 .form-radio:checked + .svg-radio-button .icon {
-  fill: #404bbf;
+  fill: #4e75ff;
 }
 
 .create-btn {

@@ -13,21 +13,20 @@ const TOAST_CONFIG = {
   messageLineHeight: 1.5,
   messageColor: "#fff",
   position: "topRight",
-  iconUrl: "./img/icons.svg#icon-error",
-  iconColor: "#fff",
   closeOnEscape: true,
   timeout: 3000,
   theme: "dark",
 };
 
-const showToast = (type, backgroundColor, title, message) => {
-  const toastMethod = type === 'fulfilled' ? 'success' : 'error';
+const showToast = (type, backgroundColor, title, message, iconUrl) => {
+  const toastMethod = type === "fulfilled" ? "success" : "error";
   iziToast[toastMethod]({
     ...TOAST_CONFIG,
     backgroundColor,
     icon: type,
     title: title,
     message: message,
+    iconUrl: iconUrl,
   });
 };
 
@@ -35,23 +34,39 @@ const createNotification = (delay, state) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (state === "fulfilled") {
-        showToast('fulfilled', "#59a10d", "OK", `Fullfilled promise in ${delay} ms`);
         resolve();
       } else {
-        showToast('rejected', "#ef4040", "Error", `Rejected promise in ${delay} ms`);
         reject();
       }
     }, delay);
   });
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = e => {
   e.preventDefault();
   const delay = parseInt(document.querySelector("[name=delay]").value, 10);
   const state = document.querySelector("[name=state]:checked")?.value;
 
   if (delay > 0 && state) {
-    createNotification(delay, state);
+    createNotification(delay, state)
+      .then(() => {
+        showToast(
+          "fulfilled",
+          "#59a10d",
+          "OK",
+          `Fullfilled promise in ${delay} ms`,
+          "./img/ok.svg"
+        );
+      })
+      .catch(() => {
+        showToast(
+          "rejected",
+          "#ef4040",
+          "Error",
+          `Rejected promise in ${delay} ms`,
+          "./img/error.svg"
+        );
+      });
   }
 };
 
