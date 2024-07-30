@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -18,7 +18,7 @@
     <section>
       <a href="./index.html">Go to home</a>
       <form class="form">
-        <label>
+        <label class="input-block">
           Delay (ms)
           <input type="number" name="delay" required />
         </label>
@@ -26,11 +26,33 @@
         <fieldset>
           <legend>State</legend>
           <label>
-            <input type="radio" name="state" value="fulfilled" required />
+            <input
+              class="form-radio visually-hidden"
+              type="radio"
+              name="state"
+              value="fulfilled"
+              required
+            />
+            <span class="svg-radio-button"
+              ><svg class="icon" width="22" height="22">
+                <use href="./img/icons.svg#icon-radio"></use>
+              </svg>
+            </span>
             Fulfilled
           </label>
           <label>
-            <input type="radio" name="state" value="rejected" required />
+            <input
+              class="form-radio visually-hidden"
+              type="radio"
+              name="state"
+              value="rejected"
+              required
+            />
+            <span class="svg-radio-button"
+              ><svg class="icon" width="20" height="20">
+                <use href="./img/icons.svg#icon-radio"></use>
+              </svg>
+            </span>
             Rejected
           </label>
         </fieldset>
