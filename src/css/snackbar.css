@@ -33,8 +33,7 @@ fieldset {
   border-color: #000;
 }
 
-.input-delay:focus-within,
-.input-delay:focus-visible {
+.input-delay:focus {
   border-color: #4e75ff;
   outline: none;
 }
