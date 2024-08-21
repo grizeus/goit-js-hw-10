@@ -92,7 +92,7 @@ const options = {
         position: "topRight",
         closeOnEscape: true,
         icon: "error",
-        iconUrl: "./img/error.svg",
+        iconUrl: "../img/error.svg",
         timeout: 3000,
         theme: "dark",
       });
