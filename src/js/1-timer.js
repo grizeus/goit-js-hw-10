@@ -14,10 +14,8 @@ const minutesVal = document.querySelector(".value[data-minutes]");
 const hoursVal = document.querySelector(".value[data-hours]");
 const daysVal = document.querySelector(".value[data-days]");
 
-// functions
 
 function convertMs(ms) {
-  // constants
   const SECOND = 1000;
   const MINUTE = SECOND * 60;
   const HOUR = MINUTE * 60;
