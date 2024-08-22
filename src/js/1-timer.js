@@ -5,6 +5,7 @@ import "flatpickr/dist/flatpickr.min.css";
 import "../css/custom-flatpickr.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import errSvg from "../img/error.svg";
 
 const countBtn = document.querySelector("button[data-start]");
 const datePicker = document.querySelector("input#datetime-picker");
@@ -92,7 +93,7 @@ const options = {
         position: "topRight",
         closeOnEscape: true,
         icon: "error",
-        iconUrl: "./assets/error.svg",
+        iconUrl: errSvg,
         timeout: 3000,
         theme: "dark",
       });

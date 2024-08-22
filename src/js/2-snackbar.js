@@ -2,6 +2,8 @@
 
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import errSvg from "../img/error.svg";
+import okSvg from "../img/ok.svg";
 
 const form = document.querySelector(".form");
 
@@ -55,7 +57,7 @@ const handleSubmit = e => {
           "#59a10d",
           "OK",
           `Fullfilled promise in ${delay} ms`,
-          "./img/ok.svg"
+          okSvg
         );
       })
       .catch(() => {
@@ -64,7 +66,7 @@ const handleSubmit = e => {
           "#ef4040",
           "Error",
           `Rejected promise in ${delay} ms`,
-          "./img/error.svg"
+          errSvg
         );
       });
   }
